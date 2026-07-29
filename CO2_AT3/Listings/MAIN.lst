@@ -1,0 +1,54 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              07/29/2026 10:43:35 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\MAIN.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE MAIN.C OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\MAIN
+                    -.lst) TABS(2) OBJECT(.\Objects\MAIN.obj)
+
+line level    source
+
+   1          #include <REGX51.H>
+   2          #include "adc.h"
+   3          #include "fan.h"
+   4          
+   5          #define TEMP_THRESHOLD 30
+   6          
+   7          void main()
+   8          {
+   9   1          unsigned char adcValue;
+  10   1          unsigned char temperature;
+  11   1      
+  12   1          ADC_Init();
+  13   1          Fan_Init();
+  14   1      
+  15   1          while(1)
+  16   1          {
+  17   2              adcValue = 100;
+  18   2      
+  19   2              temperature = (adcValue * 100) / 255;
+  20   2      
+  21   2              if(temperature >= TEMP_THRESHOLD)
+  22   2              {
+  23   3                  Fan_ON();
+  24   3              }
+  25   2              else
+  26   2              {
+  27   3                  Fan_OFF();
+  28   3              }
+  29   2          }
+  30   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     42    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,168 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    07/29/2026  10:52:11  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\MAIN.obj, .\Objects\adc.obj, .\Objects\fan.obj TO .\Objects\Q1 PRINT (.\Listings\Q
+>> 1.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\MAIN.obj (MAIN)
+  .\Objects\adc.obj (ADC)
+  .\Objects\fan.obj (FAN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?UIDIV)
+
+
+LINK MAP OF MODULE:  .\Objects\Q1 (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0055H     UNIT         ?C?LIB_CODE
+            CODE    0855H     002AH     UNIT         ?PR?MAIN?MAIN
+            CODE    087FH     0010H     UNIT         ?PR?ADC_READ?ADC
+            CODE    088FH     000CH     UNIT         ?C_C51STARTUP
+            CODE    089BH     0004H     UNIT         ?PR?ADC_INIT?ADC
+            CODE    089FH     0003H     UNIT         ?PR?FAN_INIT?FAN
+            CODE    08A2H     0003H     UNIT         ?PR?FAN_ON?FAN
+            CODE    08A5H     0003H     UNIT         ?PR?FAN_OFF?FAN
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\Q1 (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN
+  +--> ?PR?ADC_INIT?ADC
+  +--> ?PR?FAN_INIT?FAN
+  +--> ?PR?FAN_ON?FAN
+  +--> ?PR?FAN_OFF?FAN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\Q1 (MAIN)
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/29/2026  10:52:11  PAGE 2
+
+
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0855H         PUBLIC        main
+  -------         PROC          MAIN
+  -------         DO            
+  D:0007H         SYMBOL        adcValue
+  D:0007H         SYMBOL        temperature
+  -------         ENDDO         
+  C:0855H         LINE#         7
+  C:0855H         LINE#         8
+  C:0855H         LINE#         12
+  C:0858H         LINE#         13
+  C:085BH         LINE#         15
+  C:085BH         LINE#         16
+  C:085BH         LINE#         17
+  C:085DH         LINE#         19
+  C:086BH         LINE#         21
+  C:0875H         LINE#         22
+  C:0875H         LINE#         23
+  C:0878H         LINE#         24
+  C:087AH         LINE#         26
+  C:087AH         LINE#         27
+  C:087DH         LINE#         28
+  C:087DH         LINE#         29
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        ADC
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  B:00B0H.1       PUBLIC        START
+  B:00B0H.3       PUBLIC        OE
+  C:087FH         PUBLIC        ADC_Read
+  C:089BH         PUBLIC        ADC_Init
+  B:00B0H.0       PUBLIC        ALE
+  B:00B0H.2       PUBLIC        EOC
+  -------         PROC          ADC_INIT
+  C:089BH         LINE#         9
+  C:089BH         LINE#         10
+  C:089BH         LINE#         11
+  C:089EH         LINE#         12
+  -------         ENDPROC       ADC_INIT
+  -------         PROC          ADC_READ
+  C:087FH         LINE#         14
+  C:087FH         LINE#         15
+  C:087FH         LINE#         16
+  C:0881H         LINE#         17
+  C:0883H         LINE#         18
+  C:0885H         LINE#         19
+  C:0887H         LINE#         21
+  C:088AH         LINE#         23
+  C:088CH         LINE#         24
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/29/2026  10:52:11  PAGE 3
+
+
+  C:088EH         LINE#         25
+  -------         ENDPROC       ADC_READ
+  -------         ENDMOD        ADC
+
+  -------         MODULE        FAN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:089FH         PUBLIC        Fan_Init
+  C:08A2H         PUBLIC        Fan_ON
+  C:08A5H         PUBLIC        Fan_OFF
+  B:00A0H.0       PUBLIC        FAN
+  -------         PROC          FAN_INIT
+  C:089FH         LINE#         6
+  C:089FH         LINE#         7
+  C:089FH         LINE#         8
+  C:08A1H         LINE#         9
+  -------         ENDPROC       FAN_INIT
+  -------         PROC          FAN_ON
+  C:08A2H         LINE#         11
+  C:08A2H         LINE#         12
+  C:08A2H         LINE#         13
+  C:08A4H         LINE#         14
+  -------         ENDPROC       FAN_ON
+  -------         PROC          FAN_OFF
+  C:08A5H         LINE#         16
+  C:08A5H         LINE#         17
+  C:08A5H         LINE#         18
+  C:08A7H         LINE#         19
+  -------         ENDPROC       FAN_OFF
+  -------         ENDMOD        FAN
+
+  -------         MODULE        ?C?UIDIV
+  C:0800H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ADC_READ?ADC
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0047H BYTE ( 3%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=171
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

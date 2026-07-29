@@ -1,0 +1,5 @@
+".\Objects\MAIN.obj",
+".\Objects\adc.obj",
+".\Objects\fan.obj" 
+TO ".\Objects\Q1" 
+PRINT(".\Listings\Q1.m51")
